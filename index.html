@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Jangan Lupa Jogging!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(45deg, #a1ffce, #faffd1, #ffc3a0);
+      background-size: 600% 600%;
+      animation: gradientFlow 12s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-radius: 25px;
+      padding: 50px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      animation: cardIn 1.5s ease forwards;
+      opacity: 0;
+      z-index: 10;
+    }
+
+    @keyframes cardIn {
+      0% { transform: scale(0.8) translateY(50px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .emoji-group {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      animation: floatEmoji 2.5s ease-in-out infinite;
+    }
+
+    @keyframes floatEmoji {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-size: 2.3em;
+      color: #2f855a;
+      margin-bottom: 10px;
+      animation: fadeInDown 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #333;
+      line-height: 1.7;
+      animation: fadeInUp 1.6s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Confetti / Sparkle */
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: pink;
+      opacity: 0.7;
+      border-radius: 50%;
+      top: -10px;
+      animation: sparkleFall linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes sparkleFall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CARD -->
+  <div class="card">
+    <div class="emoji-group">🏃‍♂️ ☀️ 💦 🎵</div>
+    <h1>jogging woy minggu</h1>
+    <p>
+      aja kelalen, aja turu tok <br>
+      ubay,rasa,rapa,pardan,rizki,yoga💪<br><br>
+      gassssa 🌿
+    </p>
+  </div>
+
+  <!-- Confetti / Sparkle Script -->
+  <script>
+    for (let i = 0; i < 100; i++) {
+      let confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      confetti.style.animationDuration = (Math.random() * 4 + 3) + "s";
+      confetti.style.width = confetti.style.height = (Math.random() * 6 + 4) + "px";
+      confetti.style.animationDelay = Math.random() + "s";
+      document.body.appendChild(confetti);
+    }
+  </script>
+
+</body>
+</html>
